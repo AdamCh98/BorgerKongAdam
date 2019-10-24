@@ -40,10 +40,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     }
 
-    //public ItemAdapter(ArrayList<Item> itemList) {
-       // items = itemList;
-    //}
-
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -63,8 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             public void onClick(View views) {
-
-             //   holder.itemName.getContext().startActivity(new Intent(holder.itemName.getContext(), ItemDetail.class));
+                //Give data for itemDetail
                 Context context = views.getContext();
 
                 Intent startIntent = new Intent(context, ItemDetail.class);

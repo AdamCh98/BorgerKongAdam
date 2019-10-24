@@ -32,9 +32,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         public View view;
         public ImageView itemPhoto;
         public TextView itemName;
-        public TextView itemPrice;
+        public TextView itemPriceDisplay;
         public Button removeButton;
-        public TextView itemQuantity;
+        public TextView itemQuantityDisplay;
         public TextView subtotal;
 
         public OrderViewHolder(View v) {
@@ -43,9 +43,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             view = v;
             itemPhoto = v.findViewById(R.id.item_order_photo);
             itemName = v.findViewById(R.id.item_order_name);
-            itemPrice = v.findViewById(R.id.item_order_price);
+            itemPriceDisplay = v.findViewById(R.id.item_order_price);
             removeButton = v.findViewById(R.id.item_order_remove);
-            itemQuantity = v.findViewById(R.id.item_order_quantity);
+            itemQuantityDisplay = v.findViewById(R.id.item_order_quantity);
             subtotal = v.findViewById(R.id.item_order_subtotal);
 
         }
@@ -71,17 +71,17 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @Override
     public void onBindViewHolder(@NonNull final OrderViewHolder holder, final int position) {
         final Item currentItem = orderItems.get(position);
-        holder.itemName.setText(currentItem.getItemName());
 
+        //Setting all the layout elements
+        holder.itemName.setText(currentItem.getItemName());
         String itemCostString = String.format("%,.2f", currentItem.getItemCost());
-        holder.itemPrice.setText("$" + itemCostString);
+        holder.itemPriceDisplay.setText("$" + itemCostString);
         holder.itemPhoto.setImageResource(currentItem.getImageDrawableId());
-        holder.itemQuantity.setText(Integer.toString(itemQuantity.get(position)));
+        holder.itemQuantityDisplay.setText(Integer.toString(itemQuantity.get(position)));
 
         //Getting the subtotal:
         double subtotalDisplay = currentItem.getItemCost() * itemQuantity.get(position);
         String subTotalDisplayRounded = String.format("%,.2f",subtotalDisplay);
-
         holder.subtotal.setText("$" + subTotalDisplayRounded);
 
         holder.removeButton.setOnClickListener(new View.OnClickListener() {

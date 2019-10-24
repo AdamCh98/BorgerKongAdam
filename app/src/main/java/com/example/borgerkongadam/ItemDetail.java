@@ -30,11 +30,12 @@ public class ItemDetail extends AppCompatActivity {
         setContentView(R.layout.item_detail);
 
 
+        //Grab data received from itemAdapter
         Intent intent = getIntent();
         int itemID = intent.getIntExtra("itemID", 0);
         final Item thisItem = BorgerKongDatabase.getItemById(itemID);
 
-        //If there isn't a defaultvalue - display as per the itemID. ELSE, go back to mainactivity (i.e when user presses back button)
+        //If there isn't a default Value - display as per the itemID. ELSE, go back to mainactivity (i.e when user presses back button)
         if (itemID !=0) {
 
             itemDetailName = findViewById(R.id.item_detail_name);
@@ -95,6 +96,6 @@ public class ItemDetail extends AppCompatActivity {
     }
 
     public void quantityToast(View v) {
-        Toast.makeText(ItemDetail.this, "You must enter a valid quantity", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ItemDetail.this, "Please enter a valid quantity!", Toast.LENGTH_SHORT).show();
     }
 }

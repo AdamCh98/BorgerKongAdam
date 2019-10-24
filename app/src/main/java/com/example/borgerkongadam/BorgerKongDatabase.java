@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BorgerKongDatabase {
 
-    //Database for 15 different items - name, cost, description and image
+    //Database for 16 different items - name, cost, description and image
 
 public static Item getItemById(int itemID) { return items.get(itemID);}
 
@@ -41,7 +41,7 @@ public static Item getItemById(int itemID) { return items.get(itemID);}
                 3,
                 "Double-sliced Hamburger",
                 3.50,
-                "Classical hamburger with two layers of lettuce- can't go wrong!",
+                "Classical hamburger with two layers of beef - can't go wrong!",
                 R.drawable.burger3
 
         ));
@@ -77,7 +77,7 @@ public static Item getItemById(int itemID) { return items.get(itemID);}
                 7,
                 "Vegetarian burger",
                 5.00,
-                "For vegetarians, two layers of synthetic meat and cucumber!",
+                "For vegetarians, one layer of synthetic meat and lettuce!",
                 R.drawable.burger7
 
         ));
