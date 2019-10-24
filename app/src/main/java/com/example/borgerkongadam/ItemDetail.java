@@ -34,6 +34,7 @@ public class ItemDetail extends AppCompatActivity {
         int itemID = intent.getIntExtra("itemID", 0);
         final Item thisItem = BorgerKongDatabase.getItemById(itemID);
 
+        //If there isn't a defaultvalue - display as per the itemID. ELSE, go back to mainactivity (i.e when user presses back button)
         if (itemID !=0) {
 
             itemDetailName = findViewById(R.id.item_detail_name);
@@ -61,6 +62,7 @@ public class ItemDetail extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
+                    //If user doesn't click on any number/value
                     if (itemDetailQuantity.getText().toString().equals("")) {
                         quantityToast(v);
                     } else {
@@ -81,13 +83,13 @@ public class ItemDetail extends AppCompatActivity {
                 }
             });
         } else {
-            Intent exitIntent = new Intent(ItemDetail.this, MainActivity.class);
+           Intent exitIntent = new Intent(ItemDetail.this, MainActivity.class);
             startActivity(exitIntent);
-        }
+       }
 
         }
 
-
+        //Order confirmation
     public void confirmToast(View v) {
         Toast.makeText(ItemDetail.this, "You have ordered " + quantity + " " + itemName + "(s)", Toast.LENGTH_SHORT).show();
     }

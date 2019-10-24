@@ -64,11 +64,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.view.setOnClickListener(new View.OnClickListener() {
             public void onClick(View views) {
 
-                holder.itemName.getContext().startActivity(new Intent(holder.itemName.getContext(), ItemDetail.class));
+             //   holder.itemName.getContext().startActivity(new Intent(holder.itemName.getContext(), ItemDetail.class));
+                Context context = views.getContext();
 
-                Intent startIntent = new Intent(holder.itemName.getContext(), ItemDetail.class);
+                Intent startIntent = new Intent(context, ItemDetail.class);
                 startIntent.putExtra("itemID", currentItem.getItemID());
-                holder.itemName.getContext().startActivity(startIntent);
+                context.startActivity(startIntent);
             }
 
 
